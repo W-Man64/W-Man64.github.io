@@ -1,4 +1,7 @@
+<!DOCTYPE html>
 <img src="image.jpeg">
+<html>
+<body>
 <form action="">
   <header>Pizza Base</header>
   <input type="radio" name="pizza_base" id="classic-crust" value="Classic Crust"/>
@@ -25,6 +28,7 @@
   <label for="">Mozzarella Cheese</label><br>
   <input type="button" onclick="checkSubmit()" id="submit" value="Submit"/><br><br>
 </form>
+</body>
 <script>
 function checkSubmit(){
   var pizza_base = document.querySelector('input[name = "pizza_base"]:checked');
@@ -52,3 +56,4 @@ function checkSubmit(){
   }
 }
 </script>
+</html>
