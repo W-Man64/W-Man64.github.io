@@ -1,60 +1,68 @@
 <!DOCTYPE html>
-<img src="image.jpeg">
 <html>
-<title>W&G Assessment</title>
+
+<header>
+  <title>W&G Assessment</title>
+  <h1>Design your own pizza!</h1>
+</header>
+
 <body>
-<form action="">
-  <header>Pizza Base</header>
-  <input type="radio" name="pizza_base" id="classic-crust" value="Classic Crust"/>
-  <label for="">Classic Crust</label><br>
-  <input type="radio" name="pizza_base" id="thin-n-crispy" value="Thin 'n' Crispy"/>
-  <label for="">Thin 'n' Crispy</label><br>
-  <input type="radio" name="pizza_base" id="cheesy-crust" value="Cheesy Crust"/>
-  <label for="">Cheesy Crust</label><br>
-  <input type="radio" name="pizza_base" id="gluten-free-base" value="Gluten Free Base"/>
-  <label for="">Gluten Free Base</label><br>
-  <header>Pizza Sauce</header>
-  <input type="radio" name="pizza_sauce" id="classic-pizza-sauce" value="Classic Pizza Sauce"/>
-  <label for="">Classic Pizza Sauce </label><br>
-  <input type="radio" name="pizza_sauce" id="barbeque-sauce" value="Barbeque Sauce"/>
-  <label for="">Barbeque Sauce</label><br>
-  <input type="radio" name="pizza_sauce" id="spicy-mayonnaise" value="Spicy Mayonnaise"/>
-  <label for="">Spicy Mayonnaise</label><br>
-  <input type="radio" name="pizza_sauce" id="cow-liver-juice" value="Cow Liver Juice"/>
-  <label for="">Cow Liver Juice</label><br>
-  <header>Toppings</header>
-  <input type="checkbox" name="topping1" id="tasty-cheese" value="Tasty Cheese"/>
-  <label for="">Tasty Cheese</label><br>
-  <input type="checkbox" name="topping2" id="mozzarella-cheese" value="Mozzarella Cheese"/>
-  <label for="">Mozzarella Cheese</label><br>
-  <input type="button" onclick="checkSubmit()" id="submit" value="Submit"/><br><br>
-</form>
+  <img src="image.jpeg">
+  <form action="">
+    <header>Pizza Base</header>
+      <input type="radio" name="pizza_base" id="classic-crust" value="Classic Crust"/>
+      <label for="">Classic Crust</label><br>
+      <input type="radio" name="pizza_base" id="thin-n-crispy" value="Thin 'n' Crispy"/>
+      <label for="">Thin 'n' Crispy</label><br>
+      <input type="radio" name="pizza_base" id="cheesy-crust" value="Cheesy Crust"/>
+      <label for="">Cheesy Crust</label><br>
+      <input type="radio" name="pizza_base" id="gluten-free-base" value="Gluten Free Base"/>
+      <label for="">Gluten Free Base</label><br><br>
+    <header>Pizza Sauce</header>
+      <input type="radio" name="pizza_sauce" id="classic-pizza-sauce" value="Classic Pizza Sauce"/>
+      <label for="">Classic Pizza Sauce </label><br>
+      <input type="radio" name="pizza_sauce" id="barbeque-sauce" value="Barbeque Sauce"/>
+      <label for="">Barbeque Sauce</label><br>
+      <input type="radio" name="pizza_sauce" id="spicy-mayonnaise" value="Spicy Mayonnaise"/>
+      <label for="">Spicy Mayonnaise</label><br>
+      <input type="radio" name="pizza_sauce" id="cow-liver-juice" value="Cow Liver Juice"/>
+      <label for="">Cow Liver Juice</label><br><br>
+    <header>Toppings</header>
+      <input type="checkbox" name="topping1" id="tasty-cheese" value="Tasty Cheese"/>
+      <label for="">Tasty Cheese</label><br>
+      <input type="checkbox" name="topping2" id="mozzarella-cheese" value="Mozzarella Cheese"/>
+      <label for="">Mozzarella Cheese</label><br><br>
+    <header>Order your pizza!</header>
+      <input type="button" onclick="checkSubmit()" id="submit" value="Submit"/><br><br>
+  </form>
+  <a href="https://github.com/W-Man64/W-Man64.github.io">Source Code</a>
+  <script>
+    function checkSubmit(){
+      var pizza_base = document.querySelector('input[name = "pizza_base"]:checked');
+      var pizza_sauce = document.querySelector('input[name = "pizza_sauce"]:checked');
+      var topping1 = document.getElementById("tasty-cheese");
+      var topping2 = document.getElementById("mozzarella-cheese");
+      var toppings = ("Toppings: ");
+      if(topping1.checked == true){
+        toppings += (topping1.value + ", ");
+      }
+      if(topping2.checked == true){
+        toppings += (topping2.value + ", ");
+      }
+      var toppings_final = (toppings);
+      toppings_final = toppings_final.slice(0, -2);
+      if(pizza_base && pizza_sauce != null){  //Test if something was checked
+        alert("Base: " + pizza_base.value); //Alert the value of the checked.
+        alert("Sauce: "  + pizza_sauce.value);
+      }
+      else {
+        alert('Please make sure you have selected everything!'); //Alert, nothing was checked.
+      }
+      if(toppings != "Toppings: " && pizza_base && pizza_sauce != null){
+        alert(toppings_final);
+      }
+    }
+  </script>
 </body>
-<script>
-function checkSubmit(){
-  var pizza_base = document.querySelector('input[name = "pizza_base"]:checked');
-  var pizza_sauce = document.querySelector('input[name = "pizza_sauce"]:checked');
-  var topping1 = document.getElementById("tasty-cheese");
-  var topping2 = document.getElementById("mozzarella-cheese");
-  var toppings = ("Toppings: ");
-  if(topping1.checked == true){
-    toppings += (topping1.value + ", ");
-  }
-  if(topping2.checked == true){
-    toppings += (topping2.value + ", ");
-  }
-  var toppings_final = (toppings);
-  toppings_final = toppings_final.slice(0, -2);
-  if(pizza_base && pizza_sauce != null){  //Test if something was checked
-    alert("Base: " + pizza_base.value); //Alert the value of the checked.
-    alert("Sauce: "  + pizza_sauce.value);
-  }
-  else {
-    alert('Please make sure you have selected everything!'); //Alert, nothing was checked.
-  }
-  if(toppings != "Toppings: " && pizza_base && pizza_sauce != null){
-    alert(toppings_final);
-  }
-}
-</script>
+
 </html>
